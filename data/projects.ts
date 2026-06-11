@@ -9,6 +9,7 @@ export type Project = {
   highlights: string[]
   githubUrl?: string
   liveUrl?: string
+  previewImage?: string
 }
 
 export const projects: Project[] = [
@@ -19,6 +20,7 @@ export const projects: Project[] = [
       "Sistema de gestão web desenvolvido para uma barbearia real, com agendamento online, painel administrativo e controle operacional.",
     description:
       "Projeto real desenvolvido para cliente, com foco em organizar agendamentos, profissionais, serviços, produtos, relatórios e rotinas administrativas. O sistema foi concluído tecnicamente, mas não foi lançado oficialmente por decisão comercial do cliente.",
+    previewImage: "/projects/trevo/preview.png",
     status: "Concluído tecnicamente",
     type: "Sistema de Gestão Web",
     technologies: ["React", "TypeScript", "Supabase", "Vercel"],
@@ -59,6 +61,7 @@ export const projects: Project[] = [
       "Autenticação com JWT",
       "Painel do restaurante",
     ],
+    previewImage: "/projects/sarmelo-delivery/preview.png",
     githubUrl: "https://github.com/sarmelo01/Sistema-Delivery",
   },
 ] 

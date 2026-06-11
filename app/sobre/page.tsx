@@ -6,8 +6,31 @@ import { SectionTitle } from "@/components/shared/SectionTitle"
 const techStack = [
   { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
   { category: "Backend", items: ["Node.js", "Express", "Supabase"] },
-  { category: "Banco de dados", items: ["SQLite", "PostgreSQL (Supabase)"] },
+  { category: "Banco de dados", items: ["PostgreSQL", "SQLite"] },
   { category: "Ferramentas", items: ["Git", "GitHub", "Vercel", "VS Code"] },
+]
+
+const blocos = [
+  {
+    titulo: "O que me move",
+    texto:
+      "Quero usar tecnologia para resolver problemas reais — não só escrever código, mas entender o processo, identificar o gargalo e construir algo que funcione de verdade. Essa mentalidade veio antes de qualquer linha de código.",
+  },
+  {
+    titulo: "Como eu trabalho",
+    texto:
+      "Aprendo fazendo. Já passei por suporte técnico, Customer Success e operação B2B. Esse histórico me ensinou a pensar no usuário final, entender o lado do cliente e não travar quando o problema é novo.",
+  },
+  {
+    titulo: "De onde vem a iniciativa",
+    texto:
+      "Em 2024 vendi doces por conta própria — abordagem direta, sem rede de apoio, sem salário fixo. Pode parecer simples, mas foi onde confirmei que consigo sair do lugar quando preciso, sem esperar alguém mandar.",
+  },
+  {
+    titulo: "Agora",
+    texto:
+      "Estou no 2º ano de Ciência da Computação, construindo projetos reais e montando meu portfólio técnico. Quero crescer rápido, aprender com quem já fez e contribuir com times que estão construindo algo que importa.",
+  },
 ]
 
 export default function SobrePage() {
@@ -19,56 +42,39 @@ export default function SobrePage() {
         <SectionTitle
           label="Sobre"
           title="Quem é Marcelo Fuhr"
-          description="19 anos, Campo Grande/MS. Estou construindo minha trajetória em tecnologia com projetos reais, visão prática e ambição de longo prazo."
+          description="19 anos, Campo Grande/MS. Comecei cedo, errei bastante e aprendi na prática. Estou em construção — e é exatamente isso que me move."
         />
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-          {/* Trajetória */}
-          <div className="rounded-3xl border border-border bg-card/60 p-6 shadow-glow sm:p-8">
-            <h3 className="text-xl font-semibold text-foreground">
-              Trajetória
-            </h3>
-
-            <div className="mt-5 space-y-4 text-sm leading-7 text-muted-foreground sm:text-base">
-              <p>
-                Comecei minha vida profissional cedo, passando por atendimento
-                ao cliente, suporte técnico e Customer Success em empresas como
-                Track Land e Hiper Simples. Nessas experiências aprendi a lidar
-                com clientes B2B, entender processos operacionais e resolver
-                problemas no dia a dia com responsabilidade.
-              </p>
-
-              <p>
-                Com o tempo, percebi que tecnologia era o caminho para resolver
-                esses mesmos problemas de forma mais inteligente e escalável.
-                Isso me levou a estudar Ciência da Computação e a começar a
-                desenvolver projetos próprios — primeiro para entender como as
-                coisas funcionam, depois para entregar soluções que de fato
-                funcionam para quem usa.
-              </p>
-
-              <p>
-                Hoje combino essa bagagem de operação e atendimento com
-                desenvolvimento web prático. Tenho projetos concretos no
-                portfólio, estou em constante evolução e quero construir uma
-                trajetória grande em tecnologia — com visão empreendedora e
-                foco em resolver problemas reais.
-              </p>
-            </div>
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+          {/* Blocos de personalidade */}
+          <div className="space-y-4">
+            {blocos.map((bloco) => (
+              <div
+                key={bloco.titulo}
+                className="rounded-3xl border border-border bg-card/60 p-6 shadow-glow sm:p-7"
+              >
+                <h3 className="text-base font-semibold text-primary">
+                  {bloco.titulo}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground sm:text-base">
+                  {bloco.texto}
+                </p>
+              </div>
+            ))}
           </div>
 
-          {/* Stack atual */}
-          <aside className="rounded-3xl border border-border bg-card/60 p-6 shadow-glow sm:p-8">
-            <h3 className="text-xl font-semibold text-foreground">
-              Tecnologias que uso
+          {/* Stack */}
+          <aside className="rounded-3xl border border-border bg-card/60 p-6 shadow-glow sm:p-8 h-fit lg:sticky lg:top-24">
+            <h3 className="text-base font-semibold text-foreground">
+              Tecnologias
             </h3>
+            <p className="mt-1 text-xs text-muted-foreground">
+              Stack que uso nos projetos
+            </p>
 
             <div className="mt-5 space-y-4">
               {techStack.map((group) => (
-                <div
-                  key={group.category}
-                  className="rounded-2xl border border-border bg-background/60 p-4"
-                >
+                <div key={group.category}>
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     {group.category}
                   </p>

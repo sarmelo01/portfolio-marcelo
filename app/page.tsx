@@ -37,79 +37,92 @@ export default function Home() {
     <main className="min-h-screen overflow-hidden bg-slate-950 text-white">
       <Navbar />
 
+      {/* HERO */}
       <section className="relative border-b border-white/10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(99,102,241,0.22),transparent_32%),radial-gradient(circle_at_85%_20%,rgba(16,185,129,0.14),transparent_30%),linear-gradient(135deg,rgba(15,23,42,1),rgba(2,6,23,1))]" />
         <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-indigo-500/10 blur-3xl" />
 
-        <div className="container-page relative grid min-h-[calc(100vh-4rem)] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+        <div className="container-page relative grid min-h-[calc(100vh-4rem)] items-center gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+
+          {/* COLUNA ESQUERDA */}
           <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-200">
-              <span className="h-2 w-2 rounded-full bg-emerald-300" />
-              Construindo minha próxima fase profissional
+            {/* Badge de status */}
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1.5 text-xs text-emerald-200 sm:mb-6 sm:px-4 sm:py-2 sm:text-sm">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-300" />
+              </span>
+              Disponível para oportunidades
             </div>
 
-            <h1 className="max-w-4xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-7xl">
+            <h1 className="max-w-4xl font-display text-3xl font-bold tracking-tight text-white sm:text-5xl lg:text-7xl">
               Marcelo Fuhr
             </h1>
 
-            <h2 className="mt-4 max-w-4xl font-display text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Tecnologia prática para resolver problemas reais.
+            <h2 className="mt-3 max-w-2xl font-display text-xl font-semibold leading-tight text-slate-200 sm:mt-4 sm:text-3xl lg:text-4xl">
+              Construo sistemas web,{" "}
+              <span className="text-indigo-300">automatizo processos</span>{" "}
+              e resolvo problemas reais.
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Tenho 19 anos, estudo Ciência da Computação e estou construindo
-              experiência com sistemas web, automações, suporte técnico e
-              projetos próprios. Minha visão é simples: aprender rápido,
-              construir de verdade e transformar conhecimento em oportunidade.
+            <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400 sm:mt-6 sm:text-lg">
+              19 anos, Ciência da Computação, Campo Grande/MS.
+              Aprendo rápido, entrego na prática e não espero ter tudo pronto
+              para começar a construir.
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                <p className="text-2xl font-bold text-white">19</p>
-                <p className="mt-1 text-sm text-slate-400">anos</p>
+            {/* Cards de stats */}
+            <div className="mt-6 grid grid-cols-4 gap-2 sm:mt-8 sm:gap-3">
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-lg font-bold text-white sm:text-2xl">19</p>
+                <p className="mt-0.5 text-[10px] text-slate-400 sm:mt-1 sm:text-xs">anos</p>
               </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                <p className="text-2xl font-bold text-white">CG/MS</p>
-                <p className="mt-1 text-sm text-slate-400">Campo Grande</p>
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-lg font-bold text-white sm:text-2xl">CG</p>
+                <p className="mt-0.5 text-[10px] text-slate-400 sm:mt-1 sm:text-xs">Campo Grande</p>
               </div>
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                <p className="text-2xl font-bold text-white">2+</p>
-                <p className="mt-1 text-sm text-slate-400">projetos práticos</p>
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-lg font-bold text-white sm:text-2xl">2+</p>
+                <p className="mt-0.5 text-[10px] text-slate-400 sm:mt-1 sm:text-xs">projetos</p>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-white/[0.04] p-3 sm:rounded-2xl sm:p-4">
+                <p className="text-lg font-bold text-indigo-300 sm:text-2xl">B2B</p>
+                <p className="mt-0.5 text-[10px] text-slate-400 sm:mt-1 sm:text-xs">CS e suporte</p>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            {/* Botões */}
+            <div className="mt-6 grid grid-cols-2 gap-2 sm:mt-8 sm:flex sm:flex-row sm:gap-3">
               <Link
                 href="/projetos"
-                className="inline-flex items-center justify-center rounded-full bg-indigo-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-indigo-400"
+                className="inline-flex items-center justify-center rounded-lg bg-indigo-500 px-4 py-2.5 text-xs font-semibold text-white shadow-glow transition hover:bg-indigo-400 sm:rounded-full sm:px-6 sm:py-3 sm:text-sm"
               >
                 Ver projetos
               </Link>
-
               <Link
                 href="/curriculo"
-                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10 sm:rounded-full sm:px-6 sm:py-3 sm:text-sm"
               >
                 Ver currículo
               </Link>
-
               <Link
                 href="/contato"
-                className="inline-flex items-center justify-center rounded-full border border-emerald-400/20 bg-emerald-500/10 px-6 py-3 text-sm font-semibold text-emerald-200 transition hover:bg-emerald-500/20"
+                className="col-span-2 inline-flex items-center justify-center rounded-lg border border-emerald-400/20 bg-emerald-500/10 px-4 py-2.5 text-xs font-semibold text-emerald-200 transition hover:bg-emerald-500/20 sm:col-span-1 sm:rounded-full sm:px-6 sm:py-3 sm:text-sm"
               >
                 Falar comigo
               </Link>
             </div>
           </div>
 
+          {/* COLUNA DIREITA — foto + card */}
           <div className="relative">
             <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-br from-indigo-500/20 via-transparent to-emerald-500/20 blur-2xl" />
 
             <div className="glass-card relative rounded-[2rem] p-4 sm:p-6">
               <div className="grid gap-4 rounded-[1.5rem] border border-white/10 bg-slate-950/80 p-4 sm:p-5">
-                <div className="relative h-80 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] sm:h-96">
+
+                {/* Foto */}
+                <div className="relative h-56 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] sm:h-80 sm:rounded-3xl lg:h-96">
                   <Image
                     src="/marcelo-fuhr.jpg"
                     alt="Foto profissional de Marcelo Fuhr"
@@ -119,22 +132,29 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="rounded-2xl border border-indigo-400/20 bg-indigo-500/10 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-indigo-200">
-                    Fase atual
-                  </p>
-                  <p className="mt-2 text-sm leading-6 text-slate-200">
-                    Estudando tecnologia, vendas, IA, inglês e
-                    empreendedorismo enquanto desenvolvo projetos próprios e
-                    busco novas oportunidades.
-                  </p>
+                {/* Card terminal — escondido no mobile */}
+                <div className="hidden sm:block rounded-2xl border border-indigo-400/20 bg-slate-900/80 p-4 font-mono">
+                  <div className="mb-2 flex items-center gap-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+                  </div>
+                  <pre className="overflow-x-auto whitespace-pre-wrap text-sm leading-6 text-slate-300">
+                    <code>{`// fase atual
+const marcelo = {
+  status: "construindo",
+  foco: "sistemas + IA + negócio",
+  modo: "aprender fazendo"
+}`}</code>
+                  </pre>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {focusItems.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs text-slate-300"
+                      className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-0.5 text-[11px] text-slate-300 sm:px-3 sm:py-1 sm:text-xs"
                     >
                       {item}
                     </span>
@@ -146,21 +166,21 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJETOS EM DESTAQUE */}
       <section className="container-page py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-300">
               Projetos em destaque
             </p>
-
             <h2 className="mt-3 font-display text-3xl font-bold text-white sm:text-4xl">
-              Não é só estudo. É construção.
+              Não é só estudo.{" "}
+              <span className="text-indigo-300">É construção.</span>
             </h2>
-
             <p className="mt-4 leading-7 text-slate-400">
-              Eu uso projetos para testar ideias, aprender na prática e mostrar
-              como penso: entender o problema, organizar o fluxo e entregar uma
-              solução funcional.
+              Cada projeto aqui representa um problema real que eu quis
+              resolver. Entender o fluxo, organizar a solução e entregar
+              algo funcional — é assim que eu aprendo.
             </p>
           </div>
 
@@ -176,21 +196,17 @@ export default function Home() {
                     <div className="mb-4 inline-flex rounded-full border border-emerald-400/20 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-200">
                       {project.status}
                     </div>
-
                     <h3 className="font-display text-2xl font-semibold text-white">
                       {project.name}
                     </h3>
-
                     <p className="mt-2 text-sm text-indigo-200">
                       {project.detail}
                     </p>
                   </div>
-
                   <span className="text-sm font-medium text-indigo-200 transition group-hover:translate-x-1">
                     Ver detalhes →
                   </span>
                 </div>
-
                 <p className="mt-5 max-w-3xl leading-7 text-slate-400">
                   {project.description}
                 </p>

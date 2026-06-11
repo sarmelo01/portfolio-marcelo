@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -11,14 +14,17 @@ const navItems = [
 ];
 
 export function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
       <div className="container-page flex h-16 items-center justify-between">
+
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-indigo-400/30 bg-indigo-500/10 text-sm font-bold text-indigo-200 shadow-glow">
             MF
           </div>
-
           <div className="leading-tight">
             <p className="font-display text-sm font-semibold text-white">
               Marcelo Fuhr
@@ -27,6 +33,7 @@ export function Navbar() {
           </div>
         </Link>
 
+        {/* Links — só no desktop */}
         <nav className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
             <Link
@@ -39,14 +46,65 @@ export function Navbar() {
           ))}
         </nav>
 
-        <Link
-          href="https://wa.me/5567991369906"
-          target="_blank"
-          className="rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:bg-emerald-500/20"
-        >
-          WhatsApp
-        </Link>
+        {/* Lado direito */}
+        <div className="flex items-center gap-3">
+          {/* Botão WhatsApp — só no desktop */}
+          <Link
+            href="https://wa.me/5567991369906"
+            target="_blank"
+            className="hidden lg:inline-flex rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-2 text-sm font-medium text-emerald-200 transition hover:bg-emerald-500/20"
+          >
+            WhatsApp
+          </Link>
+
+          {/* Botão hambúrguer — só no mobile */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex lg:hidden flex-col justify-center items-center w-9 h-9 gap-1.5"
+            aria-label="Abrir menu"
+          >
+            <span
+              className={`block h-0.5 w-6 bg-slate-300 transition-all duration-300 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-slate-300 transition-all duration-300 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-6 bg-slate-300 transition-all duration-300 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
+          </button>
+        </div>
       </div>
+
+      {/* Menu mobile — aparece abaixo da navbar */}
+      {menuOpen && (
+        <div className="lg:hidden border-t border-white/10 bg-slate-950/95 px-6 py-4 flex flex-col gap-1">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className="rounded-lg px-4 py-3 text-sm text-slate-300 transition hover:bg-white/10 hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link
+            href="https://wa.me/5567991369906"
+            target="_blank"
+            onClick={() => setMenuOpen(false)}
+            className="mt-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-3 text-sm font-medium text-emerald-200 text-center transition hover:bg-emerald-500/20"
+          >
+            WhatsApp
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

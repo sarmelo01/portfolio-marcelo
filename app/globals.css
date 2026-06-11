@@ -124,6 +124,30 @@
       #020617;
   }
 
+  .tech-grid {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(99, 102, 241, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(99, 102, 241, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: grid-drift 20s ease-in-out infinite alternate;
+    mask-image: radial-gradient(ellipse at 50% 40%, black 30%, transparent 80%);
+  }
+
+  @keyframes grid-drift {
+    0%   { background-position: 0px 0px; }
+    100% { background-position: 24px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tech-grid {
+      animation: none;
+    }
+  }
+
   ::selection {
     background: rgba(99, 102, 241, 0.45);
     color: #ffffff;

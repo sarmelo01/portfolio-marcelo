@@ -36,7 +36,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className="dark">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans`}>
-        {children}
+        <div className="tech-grid" aria-hidden="true" />
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );

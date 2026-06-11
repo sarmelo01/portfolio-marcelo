@@ -1,4 +1,5 @@
 // app/projetos/page.tsx
+import Image from "next/image"
 import Link from "next/link"
 
 import { Footer } from "@/components/layout/Footer"
@@ -40,13 +41,22 @@ export default function ProjetosPage() {
             return (
               <article
                 key={project.slug}
-                className="flex flex-col overflow-hidden rounded-3xl border border-border bg-card/60 shadow-glow transition hover:-translate-y-1 hover:border-primary/40"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card/60 shadow-glow transition hover:-translate-y-1 hover:border-primary/40"
               >
                 {/* Preview visual */}
-                <div className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${accent.gradient} border-b border-border`}>
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl font-bold text-white/60">
-                    {accent.initials}
-                  </div>
+                <div className={`relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br ${accent.gradient} border-b border-border`}>
+                  {project.previewImage ? (
+                    <Image
+                      src={project.previewImage}
+                      alt={`Preview do projeto ${project.title}`}
+                      fill
+                      className="object-cover object-top transition group-hover:scale-105 duration-500"
+                    />
+                  ) : (
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl font-bold text-white/60">
+                      {accent.initials}
+                    </div>
+                  )}
                   <div className="absolute right-4 top-4 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
                     {project.status}
                   </div>
